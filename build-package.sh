@@ -4,7 +4,7 @@
 
 # Usage: ./build-package.sh
 
-PYTHON=python3.8
+PYTHON=python3.7
 
 TMPDIR=`mktemp -d`
 
