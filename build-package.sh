@@ -16,7 +16,7 @@ pip3 install --prefix $TMPDIR -r requirements.in
 deactivate
 
 mv $TMPDIR/lib/$PYTHON/site-packages build_lambda
-cp -r qualys_rss.py build_lambda
+cp -r lambda_function.py build_lambda
 rm -rf build_lambda/pycparser*
 
 rm -rf .venv
