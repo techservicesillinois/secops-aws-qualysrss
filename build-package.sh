@@ -12,8 +12,8 @@ rm -rf .venv build_lambda
 
 virtualenv .venv
 source .venv/bin/activate
-pip install --prefix $TMPDIR -r requirements.in
-pip freeze --path $TMPDIR/lib/$PYTHON/site-packages > requirements.txt
+pip3 install --prefix $TMPDIR -r requirements.in
+pip3 freeze --path $TMPDIR/lib/$PYTHON/site-packages > requirements.txt
 deactivate
 
 mv $TMPDIR/lib/$PYTHON/site-packages build_lambda
@@ -24,4 +24,4 @@ rm -rf .venv
 rm -rf $TMPDIR
 
 cd build_lambda
-zip -Xr9 ../qualys_rss.zip
+zip -Xr9 ../qualys_rss.zip .
