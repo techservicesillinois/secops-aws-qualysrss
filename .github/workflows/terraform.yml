@@ -14,8 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: create zip
-      run: sudo ./build-package.sh
+    - name: make qualys_rss.zip
+      run: make qualys_rss.zip
     - name: terraform init
       run: terraform init
     - name: terraform validate
