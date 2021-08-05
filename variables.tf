@@ -9,7 +9,7 @@ variable "runtime" {
 }
 
 variable "qualys_url" {
-  description = "URL for the Qualys RSS feed."
+  description = "URL for the Qualys RSS feed"
   default     = "https://status.qualys.com/history.rss"
 }
 
