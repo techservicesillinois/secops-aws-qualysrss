@@ -1,4 +1,4 @@
-import requests, xmltodict, json, os, datetime, boto3, dateutil.parser
+import requests, xmltodict, json, os, boto3, dateutil.parser
 
 # This is used to populate metadata in the Splunk event without hard coding the values
 caller_identity = boto3.client('sts').get_caller_identity()
