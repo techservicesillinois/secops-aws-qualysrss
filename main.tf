@@ -11,4 +11,11 @@ resource "aws_lambda_function" "default" {
   handler          = "lambda_function.lambda_handler"
   filename         = local.lambda_zip
   source_code_hash = filebase64sha256(local.lambda_zip)
+  environment {
+    variables = {
+      HEC_ENDPOINT = var.hec_endpoint
+      HEC_TOKEN    = var.hec_token
+      QUALYS_URL   = var.qualys_url
+    }
+  }
 }
