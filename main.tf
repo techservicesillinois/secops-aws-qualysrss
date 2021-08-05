@@ -8,6 +8,7 @@ resource "aws_lambda_function" "default" {
   runtime          = var.runtime
   publish          = true
   role             = aws_iam_role.default.arn
+  handler          = "lambda_function.lambda_handler"
   filename         = local.lambda_zip
   source_code_hash = filebase64sha256(local.lambda_zip)
 }
