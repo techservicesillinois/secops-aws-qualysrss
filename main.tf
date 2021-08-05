@@ -1,6 +1,7 @@
 locals {
   lambda_zip = "qualys_rss.zip"
 }
+
 resource "aws_lambda_function" "default" {
   description      = "Forwards the Qualys outage feed to the Splunk HEC."
   function_name    = var.name
