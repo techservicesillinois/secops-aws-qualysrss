@@ -14,7 +14,9 @@ def clean_item(item):
     return item
 
 def post_to_splunk(item):
-    headers = {'Authorization':f"Splunk {os.environ['HEC_TOKEN']}"}
+    headers = {
+        'Authorization':f"Splunk {os.environ['HEC_TOKEN']}"
+    }
 
     payload = {
         'host':caller_identity['Arn'],
