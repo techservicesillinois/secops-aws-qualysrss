@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: create zip
-      run: ./build-package.sh
+      run: sudo ./build-package.sh
     - name: terraform init
       run: terraform init
     - name: terraform validate
