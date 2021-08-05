@@ -15,4 +15,4 @@ jobs:
     - name: unzip
       run: unzip qualys_rss.zip
     - name: compare zip to source
-      run: cmp lambda_function.py ./secops-aws-qualysrss/lambda_function.py || exit
+      run: cmp lambda_function.py src/lambda_function.py || exit
