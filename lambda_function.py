@@ -22,7 +22,9 @@ def post_to_splunk(item):
         'host':caller_identity['Arn'],
         'source':os.environ['QUALYS_URL'],
         'sourcetype':'hec:test',
-        'fields':{'forwarder':(f"ACCT# {caller_identity['Account']}")},
+        'fields':{
+            'forwarder':(f"ACCT# {caller_identity['Account']}")
+        },
         'event':clean_item(item)
     }
 
