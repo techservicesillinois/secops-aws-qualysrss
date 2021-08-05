@@ -1,0 +1,18 @@
+name: Zip Validation
+
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: unzip
+      run: unzip qualys_rss.zip
+    - name: compare zip to source
+      run: cmp lambda_function.py ./secops-aws-qualysrss/lambda_function.py || exit
