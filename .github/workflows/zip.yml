@@ -13,6 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: unzip
-      run: unzip qualys_rss.zip
-    - name: compare zip to source
-      run: diff -w lambda_function.py src/lambda_function.py || exit
+      run: make validate_zip
