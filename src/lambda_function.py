@@ -38,4 +38,3 @@ def get_rss_data(url=os.environ['QUALYS_URL']):
 def lambda_handler(event, context):
     for item in get_rss_data():
         post_to_splunk(item)
-testestestestes
