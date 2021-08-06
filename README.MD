@@ -1,6 +1,6 @@
 #Overview
 
-Provides a Lambda function for forwarding Qualys outage & maintenance events to Splunk via the HEC.
+Provides a Lambda function for forwarding Qualys outage & maintenance events to Splunk via the HTTP Event Collector (HEC).
 
 Argument Reference
 -----------------
@@ -24,7 +24,7 @@ to be deployed (Default qualys-rss-to-splunk).
 #Deployment
 1) Create package using
 ```Makefile
-Make qualys_rss.zip
+make qualys_rss.zip
 ```
 2) Deploy using terraform and providing the HEC token & region when prompted
 ```Terraform
