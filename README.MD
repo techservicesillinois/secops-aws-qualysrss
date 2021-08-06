@@ -21,6 +21,13 @@ to be deployed (Default qualys-rss-to-splunk).
 
 * `hec_token` - (Required) Auth token for the Splunk HEC endpoint
 
+#Testing
+1) The Makefile is set up with tests for the terraform and zip file. The zip file must be kept up to date with the source code. Unfortunately the zip must be committed to the repo in order for the terraform validation to function.
+```Makefile
+make validate_terraform
+make validate_zip
+```
+
 #Deployment
 1) Create package using
 ```Makefile
