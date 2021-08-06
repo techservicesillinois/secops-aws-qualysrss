@@ -13,4 +13,4 @@ validate_terraform:
 
 validate_zip:
 	unzip qualys_rss.zip
-	diff -w lambda_function.py src/lambda_function.py || exit
+	diff -w lambda_function.py src/lambda_function.py
