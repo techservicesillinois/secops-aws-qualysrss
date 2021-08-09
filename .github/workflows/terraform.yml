@@ -1,0 +1,18 @@
+name: Terraform validation
+
+on:
+  pull_request:
+    branches:
+    - main
+    paths:
+    - '**.tf'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: terraform validate
+      run: make validate_terraform
