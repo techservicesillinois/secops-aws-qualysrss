@@ -4,7 +4,7 @@
 
 # Usage: ./build-package.sh
 
-PYTHON=python3.7
+PYTHON=$(grep -o 'python[0-9.]\+' variables.tf)
 
 TMPDIR=`mktemp -d`
 
