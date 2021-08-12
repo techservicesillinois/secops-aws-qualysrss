@@ -1,6 +1,6 @@
 # Overview
 
-Provides a Lambda function for forwarding Qualys outage & maintenance events to Splunk via the HTTP Event Collector (HEC).
+Provides a Lambda function for forwarding Qualys outage & maintenance events to Splunk via the HTTP Event Collector (HEC). A log of events sent is kept in DynamoDB to prevent duplicate events in Splunk.
 
 Argument Reference
 -----------------
@@ -37,6 +37,3 @@ make qualys_rss.zip
 terraform init
 terraform apply
 ```
-
-# To-Do
-* implement a way to track last sent event, likely a SQS queue. The entire RSS feed it pulled everytime so the last sent event GUID should be recorded somewhere so that duplicate events are not forwarded to Splunk.
