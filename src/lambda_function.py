@@ -29,12 +29,35 @@ def post_to_splunk(item):
     }
 
     requests.post(os.environ['HEC_ENDPOINT'], data=json.dumps(payload), headers=headers)
+    log_item_sent(item['guid'])
 
 def get_rss_data(url=os.environ['QUALYS_URL']):
     response = requests.get(url)
     data = xmltodict.parse(response.content)
     return data['rss']['channel']['item']
 
+def get_dynamo():
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(os.environ['TABLE_NAME'])
+    return table
+
+def log_item_sent(guid):
+    table = get_dynamo()
+    table.put_item(
+        Item={
+                'guid':guid
+        }
+    )
+
+def check_if_should_sent(guid):
+    table = get_dynamo()
+    response = table.get_item(Key={'guid':guid})
+    if 'Item' in response:
+        return False
+    else:
+        return True
+
 def lambda_handler(event, context):
     for item in get_rss_data():
-        post_to_splunk(item)
+        if check_if_should_sent(item['guid']):
+            post_to_splunk(item)
