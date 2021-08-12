@@ -49,7 +49,7 @@ def log_item_sent(guid):
         }
     )
 
-def check_if_should_sent(guid):
+def check_should_post(guid):
     table = get_dynamo()
     response = table.get_item(Key={'guid':guid})
     if 'Item' in response:
@@ -59,5 +59,5 @@ def check_if_should_sent(guid):
 
 def lambda_handler(event, context):
     for item in get_rss_data():
-        if check_if_should_sent(item['guid']):
+        if check_should_post(item['guid']):
             post_to_splunk(item)
