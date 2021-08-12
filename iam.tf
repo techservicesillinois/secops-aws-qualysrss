@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "trust" {
 
 data "aws_iam_policy_document" "dynamodb_access" {
   statement {
-    actions   = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:Query"]
+    actions   = ["dynamodb:GetItem", "dynamodb:PutItem"]
     resources = [resource.aws_dynamodb_table.qualys_rss.arn]
   }
 }
