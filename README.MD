@@ -1,4 +1,4 @@
-#Overview
+# Overview
 
 Provides a Lambda function for forwarding Qualys outage & maintenance events to Splunk via the HTTP Event Collector (HEC).
 
@@ -21,13 +21,13 @@ to be deployed (Default qualys-rss-to-splunk).
 
 * `hec_token` - (Required) Auth token for the Splunk HEC endpoint
 
-#Testing
+# Testing
 1) The Makefile is set up with tests for the terraform and zip file. The zip file must be kept up to date with the source code. Unfortunately the zip must be committed to the repo in order for the terraform validation to function.
 ```Makefile
 make validate
 ```
 
-#Deployment
+# Deployment
 1) Create package using
 ```Makefile
 make qualys_rss.zip
@@ -38,5 +38,5 @@ terraform init
 terraform apply
 ```
 
-#To-Do
+# To-Do
 * implement a way to track last sent event, likely a SQS queue. The entire RSS feed it pulled everytime so the last sent event GUID should be recorded somewhere so that duplicate events are not forwarded to Splunk.
