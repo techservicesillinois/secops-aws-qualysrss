@@ -45,7 +45,7 @@ def log_item_sent(guid):
     table = get_dynamo()
     table.put_item(
         Item={
-                'guid':guid
+            'guid':guid
         }
     )
 
