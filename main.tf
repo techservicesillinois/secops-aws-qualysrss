@@ -3,10 +3,10 @@ locals {
 }
 
 resource "aws_dynamodb_table" "qualys_rss" {
-  name     = var.name
-  hash_key = "guid"
+  name           = var.name
+  hash_key       = "guid"
   write_capacity = 100
-  read_capacity = 100
+  read_capacity  = 100
   attribute {
     name = "guid"
     type = "S"
