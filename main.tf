@@ -1,5 +1,7 @@
 locals {
   lambda_zip = "qualys_rss.zip"
+  github_tag = { source_code = "https://github.com/techservicesillinois/secops-aws-qualysrss" }
+  tags       = merge(var.tags, local.github_tag)
 }
 
 resource "aws_dynamodb_table" "qualys_rss" {
@@ -11,6 +13,7 @@ resource "aws_dynamodb_table" "qualys_rss" {
     name = "guid"
     type = "S"
   }
+  tags = local.tags
 }
 
 resource "aws_lambda_function" "default" {
@@ -31,4 +34,5 @@ resource "aws_lambda_function" "default" {
       TABLE_NAME   = resource.aws_dynamodb_table.qualys_rss.name
     }
   }
+  tags = local.tags
 }
