@@ -21,3 +21,9 @@ variable "hec_endpoint" {
 variable "hec_token" {
   description = "Auth token for the Splunk HEC endpoint"
 }
+
+variable "tags" {
+  description = "Tags to be applied to resources where supported"
+  type        = map(string)
+  default     = {}
+}
