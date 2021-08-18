@@ -1,4 +1,4 @@
-import requests, xmltodict, json, os, boto3, dateutil.parser
+import requests, xmltodict, json, os, boto3, dateutil.parser, datetime
 
 # This is used to populate metadata in the Splunk event without hard coding the values
 caller_identity = boto3.client('sts').get_caller_identity()
@@ -7,9 +7,8 @@ def clean_item(item):
     # The "description" field is just raw HTML that is available in human readable form via the "link" field so it's removed to make the events smaller
     del item['description']
 
-    # Splunk wants a field named "timestamp" and prefers iso format so it's converted and renamed.
-    item['timestamp'] = dateutil.parser.parse(item['pubDate']).isoformat()
-    del item['pubDate']
+    # Splunk prefers iso format for timestamps
+    item['pubDate'] = dateutil.parser.parse(item['pubDate']).isoformat()
 
     return item
 
@@ -19,9 +18,10 @@ def post_to_splunk(item):
     }
 
     payload = {
+        'timestamp':datetime.datetime.now().isoformat(),
         'host':caller_identity['Arn'],
         'source':os.environ['QUALYS_URL'],
-        'sourcetype':'hec:test',
+        'sourcetype':'_json',
         'fields':{
             'forwarder':(f"ACCT# {caller_identity['Account']}")
         },
