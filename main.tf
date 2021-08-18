@@ -41,7 +41,7 @@ resource "aws_cloudwatch_event_rule" "every_12_hours" {
   name                = "every-twelve-hours"
   description         = "Fires every 12 hours"
   schedule_expression = "cron(0 */12 * * *)"
-  tags = local.tags
+  tags                = local.tags
 }
 
 resource "aws_cloudwatch_event_target" "qualys_rss_every_twelve_hours" {
