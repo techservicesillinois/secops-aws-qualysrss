@@ -1,4 +1,4 @@
-import requests, xmltodict, json, os, boto3, dateutil.parser, datetime
+import requests, xmltodict, json, os, boto3, dateutil.parser, time
 
 # This is used to populate metadata in the Splunk event without hard coding the values
 caller_identity = boto3.client('sts').get_caller_identity()
@@ -9,7 +9,6 @@ def clean_item(item):
 
     # Splunk prefers iso format for timestamps
     item['pubDate'] = dateutil.parser.parse(item['pubDate']).isoformat()
-
     return item
 
 def post_to_splunk(item):
@@ -18,7 +17,7 @@ def post_to_splunk(item):
     }
 
     payload = {
-        'timestamp':datetime.datetime.now().isoformat(),
+        'time':time.time(),
         'host':caller_identity['Arn'],
         'source':os.environ['QUALYS_URL'],
         'sourcetype':'_json',
