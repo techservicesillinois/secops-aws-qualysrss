@@ -17,10 +17,10 @@ def post_to_splunk(item):
     }
 
     payload = {
+        'time':time.time(),
         'host':caller_identity['Arn'],
         'source':os.environ['QUALYS_URL'],
         'sourcetype':'_json',
-        'time':time.time(),
         'fields':{
             'forwarder':(f"ACCT# {caller_identity['Account']}")
         },
