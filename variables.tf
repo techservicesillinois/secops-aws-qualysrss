@@ -5,7 +5,7 @@ variable "name" {
 
 variable "runtime" {
   description = "Lambda function's runtime environment"
-  default     = "python3.8"
+  default     = "python3.7"
 }
 
 variable "qualys_url" {
