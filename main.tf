@@ -39,8 +39,8 @@ resource "aws_lambda_function" "default" {
 
 resource "aws_cloudwatch_event_rule" "schedule" {
   name                = "${replace(var.name, "-", "_")}_schedule"
-  description         = "Fires every 12 hours"
-  schedule_expression = "cron(0 */12 * * *)"
+  description         = "Fires every 4 hours"
+  schedule_expression = "rate(4 hours)"
   tags                = local.tags
 }
 
