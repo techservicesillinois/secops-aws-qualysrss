@@ -51,10 +51,8 @@ def log_item_sent(guid):
 def check_should_post(guid):
     table = get_dynamo()
     response = table.get_item(Key={'guid':guid})
-    if 'Item' in response:
-        return False
-    else:
-        return True
+    # If guid exists return false. If it does not return true.
+    return not ('Item' in response)
 
 def lambda_handler(event, context):
     for item in get_rss_data():
