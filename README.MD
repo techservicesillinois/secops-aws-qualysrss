@@ -11,7 +11,7 @@ The following arguments are supported:
 to be deployed (Default qualys-rss-to-splunk).
 
 * `runtime` - (Optional) Lambda function's runtime environment
-(Default python3.7).
+(Default python3.8).
 
 * `qualys_url` - (Optional) URL for the Qualys RSS feed
 (Default https://status.qualys.com/history.rss).
