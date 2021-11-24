@@ -15,7 +15,6 @@ variable "qualys_url" {
 
 variable "hec_endpoint" {
   description = "URL for the Splunk HEC endpoint"
-  default     = "https://splunk-hec.machinedata.illinois.edu:8088/services/collector"
 }
 
 variable "hec_token" {
