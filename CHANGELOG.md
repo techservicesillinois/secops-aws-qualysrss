@@ -17,9 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Preparation for open-sourcing
-- CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, LICENSE, SECURITY.md
+- Preparation for open sourcing
+- CHANGELOG.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md and LICENSE
 
 ### Removed
 
-- References to Splunk HEC Endpoint
+- References to specific Splunk HEC Endpoint
