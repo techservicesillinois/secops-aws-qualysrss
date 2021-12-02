@@ -46,8 +46,8 @@ terraform apply
 
 # End-of-Life and End-of-Support Dates
 
-As of the last update to this README, the expected End-of-Life and End-of-Support dates of this product are Oct 2025.
+As of the last update to this README, the expected End-of-Life and End-of-Support dates of this product are Oct 2024.
 
 End-of-Life was decided upon based on these dependencies and their End-of-Life dates:
 
-- Python 3.9 (05 Oct 2025)
+- Python 3.8 (14 Oct 2024)
